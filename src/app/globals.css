@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-baloo), system-ui, sans-serif;
+
+  --color-honey-50: #fff9e0;
+  --color-honey-100: #ffefb0;
+  --color-honey-300: #ffd84d;
+  --color-honey-400: #ffc800;
+  --color-honey-500: #ffb800;
+  --color-honey-600: #f2a900;
+  --color-honey-700: #d99700;
+  --color-honey-800: #8a5a00;
+  --color-honey-900: #5a3b00;
+  --color-cream: #fffaf0;
+  --color-ink: #6b4f12;
+  --color-leaf-100: #e3f9c8;
+  --color-leaf-400: #78d52a;
+  --color-leaf-500: #58cc02;
+  --color-leaf-600: #46a302;
+  --color-berry-100: #ffe1e1;
+  --color-berry-500: #ff4b4b;
+  --color-berry-600: #e03a3a;
+  --color-sky-brand: #1cb0f6;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+/* The chunky 3D look from the design: a darker bottom edge that squashes on press. */
+.btn3d {
+  transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+}
+.btn3d:active:not(:disabled) {
+  transform: translateY(3px);
+  border-bottom-width: 1px;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop { animation: pop 0.35s ease-out both; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float { animation: float 3.2s ease-in-out infinite; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.shake { animation: shake 0.3s ease-in-out; }
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.slide-up { animation: slideUp 0.25s ease-out both; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
